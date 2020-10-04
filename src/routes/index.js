@@ -3,10 +3,14 @@ const router = express.Router();
 
 const Task = require ('../models/task');
 
-router.get('/', async (req , res)=>{
+router.get('/' ,async (req , res)=>{
     const tasks = await Task.find();
     res.render('index' ,{tasks});
 });
+
+/* router.get('/' ,async (req , res)=>{
+    res.json(tasks);
+}); */
 
 router.post('/add', async(req, res)=>{
 
@@ -34,8 +38,6 @@ router.post('/update/:id', async (req,res) =>{
     const {id} = req.params;
     await Task.update({_id: id}, req.body);
     res.redirect('/')
-    console.log(req.body);
-    //res.send('recibido')
     
 })
 

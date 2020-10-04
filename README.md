@@ -34,6 +34,8 @@ app.listen(app.get('port'), () =>{
 https://www.youtube.com/watch?v=YRB9SvnETBk
 https://www.youtube.com/watch?v=3J925fRl_UE
 
+https://github.com/lepazmino/mongoose-datatable-demo
+
 video: 39:18
 
 bootswatch cdn :https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/litera/bootstrap.min.css

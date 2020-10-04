@@ -4,6 +4,7 @@ const path = require('path');
 const morgan = require('morgan');
 const mongoose = require ('mongoose');
 
+
 //connecting to db mongo altas
 mongoose.connect('mongodb+srv://jhon:jhon@cluster0.ela7t.mongodb.net/<dbname>?retryWrites=true&w=majority', {
     useNewUrlParser: true ,
