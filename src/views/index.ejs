@@ -1,20 +1,64 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crud nodejs mongodb</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-</head>
-<body>
-    
-    <nav class="navbar navbar-darK bg-dark mb-4">
-        <a href="/" class="navbar-brand">CRUD NODES</a>
-    </nav>
+<%- include('partials/_header'); -%>
 
-    <div class="container">
-        <h1>hola mundo</h1>
-    </div>
 
-</body>
-</html>
+<div class="container">
+	<div class="row">
+		<!-- form -->
+		<div class="col-md-5">
+			<div class="card">
+				<div class="card-body">
+					<form action="/add" method="post">
+						<div class="form-group">
+							<input type="text" name="title" placeholder="Ingrese un titulo" class="form-control">
+                            </div>
+							<div class="form-group">
+								<textarea name="description" cols="80" class="form-control" placeholder="Ingrese un titulo">
+                                </textarea>
+							</div>
+							<button type="submit" class="btn btn-primary btn-block"> Agregar tarea
+                            </button>
+					</form>
+				</div>
+			</div>
+		</div>
+		<!-- list -->
+		<div class="col-md-7">
+			<table class="table">
+				<thead class="thead-dark" style="text-align: center;">
+					<tr>
+						<th scope="col">N#</th>
+						<th scope="col">Titulo</th>
+						<th scope="col">Descripcion</th>
+						<th scope="col">Opciones</th>
+					</tr>
+				</thead>
+				<tbody style="text-align: center;">
+
+                    <% for(var i= 0; i < tasks.length; i++) { %>
+
+                        <tr>
+                            <th scope="row"><%= i + 1 %></th>
+                            <td><%= tasks[i].title %></td>
+                            <td><%= tasks[i].description %></td>
+                            <td>
+                                <a>
+                                <% if (tasks[i].status == true) { %>
+                                    <button type="button" class="btn btn-success">Activado</button>
+                                <% } else { %>
+                                    <button type="button" class="btn btn-dark">Desactivado</button>
+                                <% } %>
+                                </a>
+                                <a href="/delete/<%= tasks[i]._id %>" onclick="return confirm('Are you sure?')" class="btn btn-danger">Eliminar</a>
+                                <a href="/edit/<%= tasks[i]._id %>" class="btn btn-info">Editar</a>
+                            </td>
+
+					    </tr>
+
+                    <% } %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<%- include('partials/_footer'); -%>

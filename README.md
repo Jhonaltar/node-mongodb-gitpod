@@ -67,3 +67,21 @@ mongoose.connect('mongodb+srv://jhon:jhon@cluster0.ela7t.mongodb.net/<dbname>?re
 .catch(e =>console.log(e)); */
 
 node-mongodb-gitpod
+
+
+///////
+<a href="/turn/<%= tasks[i]._id %>" 
+    class="btn <%= tasks[i].status ? 'btn-success' : 'btn-dark' %>">
+
+      Activo
+
+</a>
+
+/////
+<a href="/turn/<%= tasks[i]._id %>">
+                                <% if (tasks[i].status == true) { %>
+                                    <button type="button" class="btn btn-success">Activado</button>
+                                <% } else { %>
+                                    <button type="button" class="btn btn-dark">Desactivado</button>
+                                <% } %>
+                                </a>
