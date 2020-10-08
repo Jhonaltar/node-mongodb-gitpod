@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const Task = require ('../models/task');
+//const tabla = require('../routes/pocesos/tabla')
 
 router.get('/' ,async (req , res)=>{
     const tasks = await Task.find();
@@ -48,5 +49,7 @@ router.get('/delete/:id', async (req,res)=>{
     .catch(e =>console.log(e));
     res.redirect('/') 
 });
+
+
 
 module.exports = router;

@@ -1,3 +1,4 @@
+/* 
 $(document).ready(function () {
        $('#ZipcodesTable').DataTable({
             "paging": true,
@@ -18,4 +19,4 @@ $(document).ready(function () {
                     ]
             
         });
-    });
+    }); */
